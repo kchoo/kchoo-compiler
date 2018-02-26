@@ -1,1 +1,1 @@
-// first pass needs to be just load entire file into memory, split byu whitespace, and start chugging through tokens
+// decided that the first pass should just be an interpreter in JS, which will make implementing modules, filesystem, etc. a lot easier
