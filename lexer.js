@@ -6,3 +6,12 @@ if (process.argv.length !== 3) {
 }
 
 const filename = process.argv[2];
+
+const rl = require('readline');
+const fs = require('fs');
+
+const reader = rl.createInterface({ input: fs.createReadStream(filename); });
+
+reader.on('line', function (line) {
+  console.log('Line from file:', line);
+});
