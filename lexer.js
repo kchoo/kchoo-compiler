@@ -13,4 +13,6 @@ const fs = require('fs');
 
 const reader = rl.createInterface({ input: fs.createReadStream(filename); });
 
-// do I stop at the 'end' or 'close' event?
+rl.on('close', function () {
+  // the end of the file
+});
