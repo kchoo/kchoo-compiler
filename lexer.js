@@ -10,9 +10,16 @@ const filename = process.argv[2];
 
 const rl = require('readline');
 const fs = require('fs');
+const $q = require('kchoo-q');
+
+const deferred = $q.defer();
+
+const program = [];
 
 const reader = rl.createInterface({ input: fs.createReadStream(filename); });
 
 rl.on('close', function () {
-  // the end of the file
+  deferred.resolve(program);
 });
+
+return deferred.promise;
