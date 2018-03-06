@@ -18,6 +18,12 @@ const program = [];
 
 const reader = rl.createInterface({ input: fs.createReadStream(filename); });
 
+let currentLine;
+
+rl.on('line', function (line) {
+
+});
+
 rl.on('close', function () {
   deferred.resolve(program);
 });
