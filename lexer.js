@@ -6,6 +6,8 @@ if (process.argv.length !== 3) {
   process.exit(1);
 }
 
+const WHITESPACE_REGEX = /\s/;
+
 const filename = process.argv[2];
 
 const rl = require('readline');
@@ -18,10 +20,20 @@ const program = [];
 
 const reader = rl.createInterface({ input: fs.createReadStream(filename); });
 
-let currentLine;
+let currentExpression;
 
 rl.on('line', function (line) {
-
+  let pointer = 0;
+  
+  while (pointer < line.length) {
+    const char = line[pointer];
+    
+    while (!WHITESPACE_REGEX.test(char)) {
+      currentExpression += char;
+    }
+    
+    ++pointer;
+  }
 });
 
 rl.on('close', function () {
